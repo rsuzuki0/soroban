@@ -1,0 +1,82 @@
+getindate();
+
+donews()
+{
+	tfcreat(+tempfile.c);
+	fputs_shiftjis(+stdfunc.c);
+	news_analyze(+newsbody.c);
+	tfclose(+tempfile.c);
+	srch_mid(+mid.c);
+	tfremove(+tempfile.c);
+	alloc_error(+errors.c);
+	errprintf(+errors.c);
+	tfopen(+tempfile.c);
+	send_news_g(+newsbody.c);
+	add_mid(+mid.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+	alloc_error(+errors.c);
+	errprintf(+errors.c);
+	active_exist(+active.c);
+	active_inc(+active.c);
+	alloc_error(+errors.c);
+	add_mid(+mid.c);
+	active_inc(+active.c);
+	alloc_error(+errors.c);
+	add_mid(+mid.c);
+	errprintf(+errors.c);
+	tfopen(+tempfile.c);
+	dirfopen(+newsbody.c);
+	tfclose(+tempfile.c);
+	alloc_error(+errors.c);
+	send_neighbour(+newsbody.c);
+	tfremove(+tempfile.c);
+}
+
+news_analyze()
+{
+	alloc_error(+errors.c);
+	getindate(-cfref);
+}
+
+chkgrplist()
+{
+	alloc_error(+errors.c);
+	namebody();
+}
+
+send_news_g()
+{
+	chkgrplist(+newsbody.c);
+	hostnamecomp(+control.c);
+	sendmail(+smail.c);
+}
+
+chkpathlist()
+{
+	alloc_error(+errors.c);
+}
+
+send_neighbour()
+{
+	chkgrplist(+newsbody.c);
+	hostnamecomp(+control.c);
+	chkpathlist(+newsbody.c);
+	smailctl(+smail.c);
+}
+
+dirfopen()
+{
+	max();
+	mkdirrec(+newsbody.c);
+	errprintf(+errors.c);
+}
+
+mkdirrec()
+{
+	mkdir();
+	max();
+	mkdirrec(+newsbody.c);
+	mkdir();
+}
+

@@ -1,0 +1,198 @@
+
+
+soroban(1)         Terakoya News System User's Manual         soroban(1)
+
+
+
+名称
+     soroban - 寺子屋ニュースシステムの中心
+
+形式
+     soroban [-V] [-c] [-v] [-r filename]
+     soroban -i
+
+解説
+     soroban は寺子屋ニュースシステムの中心プログラムです。
+
+     -v オプションを付けて起動するとヴァージョンを表示して直ちに終了しま
+     す。
+
+     -V オプションを付けて起動すると動作を逐一報告します。
+     -i オプションを指定すると history  の検索用のインデックスファイルを
+     生成します。 インデックスファイルが無かったり、history よりも古い場
+     合は自動的に生成し直しますのでユーザーは通常このオプションを指定す
+     る必要はありません。
+
+     -r を付けてその次の引数にファイル名を与えると、ニュースシステム宛て
+     のメールではなく指定したファイルを入力とみなします。同様に、 標準入
+     力をリダイレクトすると標準入力から入力します。
+
+     -c オプションを指定すると各々のニュースグループのディレクトリの下に
+     cur というファイルを作ります。実行速度は低下しますが、tyu や nos505
+     の BBS 機能を使うにはこのオプションの指定が必要です。
+
+     -C  オプションを指定すると  Lines  ヘッダフィールドの内容と実際のニ
+     ュースの行数が相違していないか確認します。 これにより不完全なニュー
+     スを記録に残さず処分することができます。
+
+     soroban はニュースを処理する際に active, history, history.idx, sys,
+     seq を参照し、更新します。これらのファイルは [Terakoya.libDir] に置
+     きます。
+
+     隣接サイトの情報は  sys  に書きますが、soroban では隣接サイトへ直接
+     メールで送らずに一度バッチファイルに書き出し、DENTAKU(1) によって隣
+     接サイトへ送るように設定することを薦めます。将来 soroban が直接メー
+     ルを生成する機能は無くなる恐れもあります。
+
+     sys の書式は以下のとおりです。
+
+          DestHost:Newsgroups:Option:[Filename]
+
+     DestHost は接続されたホストの名前です。soroban が直接メールを生成す
+     る場合はその宛て先になりますが、 バッチファイルを生成する場合は単に
+     識別子として扱います。
+
+     特定のホストを通過したニュースは送りたくないという場合、DestHost に
+     '/' を続けて その後にそのホスト名を指定します。複数になる場合は、',
+     ' で区切って並べます。
+     設定例を以下に示します。
+
+          jf7pbw/ja7yoj,jd1aba:ampr,miyagi:F:jf7pbw
+
+
+
+Terakoya News System          1st Edition                              1
+
+
+
+
+soroban(1)         Terakoya News System User's Manual         soroban(1)
+
+
+     Newsgroups  は送るニュースグループを指定します。複数指定する時は','
+     で区切って並べます。
+
+     特定のニュースグループだけを転送から外すこともできます。 転送から外
+     すニュースグループには '!' を前置します。
+     設定例を以下に示します。
+
+          jf7pbw:ampr,!ampr.binaries,miyagi:N:
+          gumbo:ampr.binaries,!ampr.binaries.d:F:
+
+     Option は動作を選択する文字を指定します。
+     Option に指定できる文字は以下のとおりです。
+
+        i) i - ihave/sendme を行う
+
+       ii) N - ihave/sendme を行わないでニュースを送る
+
+      iii) I - ihave/sendme を行う (alhave を扱う)
+
+       iv) F - ニュース転送用のバッチファイルを生成する
+
+        v) M - ihave  コントロールメッセージ作成用のバッチファイルを生成
+           する
+
+       vi) A -  多機能なアプリケーションを支援するためのバッチファイル生
+           成オプションで、DENTAKU は使用しない
+
+     なお、デフォルトは 'N' 相当です。
+
+     Filename  には出力先のファイル名を指定します。オプションが [iIN] の
+     soroban  が直接メールを生成するものだとメールにしないでそのファイル
+     に出力します。 [iIn] の時はデフォルトはありません。[MFA] の時はバッ
+     チファイルの出力先を指定します。ファイル名は [Terakoya.batchDir] か
+     らの相対パスです。デフォルトでは短いホスト名が指定されています。
+
+     [iIN] オプションを指定してファイルに出力させ、 そのファイルを何らか
+     の方法で伝送した場合、 sys の該当する行の最初のフィールドは全ての接
+     続されたホストで共通でなければなりません。
+
+     active には最低 junk と control の記述が必要です。active に記述の無
+     いNewsgroup のニュースを受け取ると junk に格納されます。 比較的新し
+     い activeを添付してありますので参考にしてください。
+
+     ニュースヘッダの  Terakoya-News-Ttl: フィールドが有効です。Path: フ
+     ィールドに含まれる '!' がこのフィールドで指定した数よりも大きい場合
+     はそのニュースはそれ以上転送されません。
+     指定するのは正の整数であること。   この機能は寺子屋独自のものである
+     が、Distribution: フィールドとは違う配布範囲を指定できます。
+
+NETWORK.DEF
+     このコマンドは $ETC(network.def) を参照します。参照するキーワードは
+     以下のとおりです。
+
+     タイプ    キーワード            デフォルト
+
+     define    Hostname              なし
+
+
+2                              1st Editon           Terakoya News System
+
+
+
+
+soroban(1)         Terakoya News System User's Manual         soroban(1)
+
+
+     define    Domainname            なし
+     directory SpoolDir              /spool
+     directory Terakoya.newsDir      [SpoolDir]/news
+     directory Terakoya.libDir       [Terakoya.newsDir]/lib
+     directory Terakoya.batchdir     [SpoolDir]/batch
+     file      soroban.errfile       [SpoolDir]/soroban.err
+     file      soroban.newsfile      rnews
+     define    soroban.pathhostname  なし
+     define    soroban.pathhostlen   1
+
+環境変数
+     ETC, TMP, TZ
+
+ファイル
+     $ETC/network.def                       ネットワーク環境定義ファイル
+     [soroban.errfile]                       エラー通知用ファイル
+     [Terakoya.batchdir]/*                ニュース一括処理用出力ファイル
+     [Terakoya.libDir]/seq              メッセージＩＤ指定用番号ファイル
+     [Terakoya.libDir]/active               ニュースグループ管理ファイル
+     [Terakoya.libDir]/history              ニュース重複チェックファイル
+     [Terakoya.libDir]/history.idx      重複チェックインデックスファイル
+     [Terakoya.libDir]/sys                   隣接ホスト管理ファイル
+     [SpoolDir]/mail/[soroban.newsfile]      ニュース処理入力ファイル
+     [Terakoya.newsDir]/news/.....      ニュース格納ディレクトリ及び本体
+
+注意事項
+     ニュースを格納するディレクトリが存在しない場合は自動的に作られま
+     す。
+     soroban  は yomikaki(1) dentaku(1) とともに terakoya システムを形成
+     します。
+
+関連項目
+     yomikaki(1), dentaku(1), poi(1), jnet(1), nos98(1)
+     network.def(5), loadnetdef(3)
+
+著者
+     おいもくらぶ
+     横田  大
+     dai@msr.prug.or.jp [133.168.194.1]
+
+     version 2.30 以降
+     谷口 章彦
+     packy@jf1pxi.e-tokyo.prug.or.jp
+     jf1pxi@jh1ynw.prug.or.jp
+
+     version 2.40, 2.41, 3.00
+     鈴木 隆史
+     wex@jf7wex.sdj.miyagi.prug.or.jp
+
+     (C) 1989,90 Dai Yokota, JK1LOT
+         1991 Akihiko Taniguchi, JF1PXI
+         1992 Ryuji Suzuki, JF7WEX
+
+
+
+
+
+
+Terakoya News System          1st Edition                              3
+
+

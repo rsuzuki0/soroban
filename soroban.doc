@@ -1,0 +1,252 @@
+SOROBAN(1)                Terakoya Users' Manual              SOROBAN(1)
+
+名前
+
+    soroban - ニュースの配送
+
+形式
+
+    soroban [-c]
+    soroban -v
+    soroban [-c] -r ファイル名
+    soroban [-c] < ファイル名
+    soroban -i
+
+機能説明
+
+    soroban コマンドはネットワーク上でニュースを配送するコマンドです。
+
+    -v オプションを付けて起動するとバージョンを表示してすぐに終了します。
+
+    -i オプションを付けて起動すると history 検索用のインデックスファイルを
+    つくります。soroban 2.21 以降ではインデックスファイルが存在しない場合
+    やインデックスファイルのタイムスタンプが history ファイルよりも古い場
+    合は自動的にインデックスファイルを作り直しますので通常はこのオプション
+    を使用する必要はありません。
+
+    -c オプションを付けると 1.41 以前の soroban と同様に各ニュースディレク
+    トリに cur というファイルを作ります。このオプションを付けると実行速度が
+    低下しますが tyu や nos505 の BBS 機能ではこのファイルを使用しますので
+    tyu お使いの方と nos505 の BBS 機能をお使いの方はこのオプションを付けて
+    下さい。
+
+    -r オプションを付けると /spool/mail/rnews.txt の代わりに第３引数で
+    指定されるファイルを処理します。
+    入力がリダイレクトされているとその内容を /spool/mail/rnews.txt の代
+    わりに処理します。パイプで使うと便利かもしれません。
+
+    soroban コマンドは一般に jnet, nos98 等のプログラムから呼び出され
+    るように設定するのが一般的です。一般ユーザーはこのコマンドを直接
+    起動する必要はありません。
+
+    addme, delme, newgroup, rmgroup の４つの制御ニュース（soroban の動
+    作を外部からコントロールするニュース）を受け取ったときには自局の
+    postmaster 宛にその旨のメールを送るようになっています。これは sor
+    oban が自動で行った各種操作にマシンの管理者が気付けるようにするた
+    めです。jnet や nos98 (oimo ではありません) の alias 機能（userma
+    n.doc 参照）を使って自分宛に転送されるようにしておくと便利です。
+
+active ファイル
+      active ファイルには存在するニューグループについて記事番号等が記
+    録されています。最低限次の２つのニュースグループの記述が必要です。
+
+    control
+    junk
+
+    この２つは soroban が制御その他の目的で使用します。一般に ampr.news.group
+    で通知される現在有効なニュースグループ一覧には、この２つは含まれませ
+    んので注意してください。
+
+      参考として msr.prug.or.jp の 1990.12.19 現在の active ファイルが
+    本パッケージに付属しています。
+      active ファイルに記述のないニュースグループのニュースを受け取っ
+    たときは junk というニュースグループに入れられるのでそのニュースグ
+    ループが存在するか確かめたうえで適宜エディタ等で active に追加して
+    ください。
+
+sys ファイル
+
+      第一フィールドには隣のホストの名前を書きます。
+      ここで、ニュースの Path フィールドに特定のホスト名が含まれてい
+    た場合にはそのニュースを送らないように経路を制御することができま
+    す。
+
+      sysの書式は、Bnewsと同じです。システム名に続けて"/"があると、そ
+    れ以降記述したシステム名がニュースヘッダの Path フィールドに存在
+    した場合には送られないようになります。例えば、
+
+      sysname/sysname1,sysname2....:
+
+    となっていた場合、sysnameには、Path に sysname1, sysname2 がある
+    ニュースは送られないことになります。
+    詳しくは、ASCII UNIXMAGAZINE 1990.1 "UNIX Communication Notes 10"
+    をご覧下さい。（JN1BWQ による）
+
+      第２フィールドには転送ニュースグループを , で区切って記述します。
+      例えば次のように記述すると、
+
+        jk1lot.msr.prug.or.jp:ampr,fwdnet::
+
+    ampr. や fwdnet. で始まるニュースグループのニュースが転送されます。
+
+        jk1lot.msr.prug.or.jp:ampr.software,fwdnet::
+
+      とすると fwdnet. で始まるニュースと ampr.software. で始まるニュー
+    スグループは転送されますが、それ以外の ampr.junk や ampr.news. で
+    始まるニュースグループは転送されません。
+      また、
+
+        jk1lot.msr.prug.or.jp:ampr,!ampr.binaries,fwdnet::
+
+    のように ! を使うと ampr. で始まるニュースグループのうち ampr.binaries.
+    で始まるニュースグループを除いたものが転送されます。
+    （JJ1BDX, JE7LQS による）
+
+      第３フィールドに書く文字によって soroban の動作を制御することが
+    できます。第３フィールドに N を書くと ihave/sendme を行わないよう
+    になります。またこのとき第４フィールドにファイル名を書くとメール
+    として送られるべき内容が代わりにファイルに入ります。また第３フィー
+    ルドに I を書くと ihave/sendme を行います。これは第３フィールドを
+    指定しないときと同じですから特に書く必要はありません。
+
+    例：jk1lot.msr.prug.or.jp:ampr,fj,soc::       従来と同じ動作
+        jh1kfi.ampr.jp:ampr,fj,soc,prug:N:        ihave/semdme をやらない
+        pcvan:ampr,fj,soc,prug:N:/news/rnews.van  /news/rnews.van というファ
+                                                  イルに入る
+
+    また ihave/sendme をやらないのはこちらから送るニュースについてです。
+    相手から ihave が送られてきたら当然 sendme を返します。
+
+      この第３フィールドに M, F を指定するとそれぞれ Message-ID, ニュー
+    ス本体の fullpath filename のみをファイルに書き出す。4th field で
+    書き出すファイル名を指定する。デフォルトは[soroban.batchdir]/hostname。
+      ファイル名を指定した場合は [soroban.batchdir] からの相対パスと
+    して扱われる。
+
+    第４フィールドを使って有線ＢＢＳ等を経由した交換を行う場合は必ず
+    それぞれの第１フィールドを同じものにしてください。例の様に PC-VAN
+    経由であれば転送に関わる全員が第１フィールドを pcvan にします。
+
+ニュースヘッダの terakoya-news-ttl フィールド
+
+      ニュースのヘッダフィールドに terakoya-news-ttl: news-ttl が指定
+    されている場合、自ホスト名を加えた後の Path: 中にある '!' の数が
+    news-ttl 以上であったらそれ以上はニュースを転送しない。なお、news
+    -ttl は正の整数であること。
+      この機能は Distrubution フィールドとはまた別の配布範囲を使いたい
+    ときに使えるが、このヘッダの付いたニュースに対してフォローアップ
+    したときの対処方法については議論がされないままにこの機能は過去の
+    ものになってしまった。
+
+network.def ファイル
+
+      version 2.40 以降のものでは従来のように環境変数 NEWS を見なくな
+    りました。また、/autoexec.net を参照することもなくなりました。
+      これらのマシンによって異なるディレクトリ構成や各種設定項目を集
+    中的に管理するためのファイルが network.def で、この頃は寺子屋関連
+    の主要なソフトウェアがこれに対応するようになっています。従来の方法
+    と比べてより柔軟に設定でき、管理が容易だからです。
+
+      network.def については netwkdef.doc をよく読んでください。これ
+    を利用するためのライブラリ（プログラム作成者が使うものです）は数
+    種類出ていますが、このヴァージョンでは jp1foc 保坂さんが作成され
+    たものを使っています。このライブラリは sorosrc.lzh にドキュメント
+    と共に収録されています。
+
+      このファイルの設定方法は /ETC というディレクトリを作ってそれを
+    $ETC に登録します。そのディレクトリの下に network.def と言うファ
+    イルを作成し、そのファイルにここで指定する項目を書いてください。
+
+    タイプ    キーワード            デフォルト
+
+    define    Hostname              なし
+    define    Domainname            なし
+    directory SpoolDir              /spool
+    directory Terakoya.newsDir      [SpoolDir]/news
+    directory Terakoya.libDir       [Terakoya.newsDir]/lib
+    file      soroban.errfile       [SpoolDir]/soroban.err
+    directory soroban.batchdir      [SpoolDir]/batch
+    file      soroban.newsfile      rnews
+    define    soroban.pathhostname  なし
+    define    soroban.pathhostlen   1
+
+      このうち、始めの４つはグローバルキーワードと呼ばれ、複数のプログ
+    ラムで共有されるキーワードですので既に YOMIKAKI 等をインストールし
+    た際に設定したものがあると思います。それ以外の soroban. で始まるも
+    のはローカルキーワードと呼ばれ、特定のプログラムで参照されます。
+      ここで注意して欲しいのはローカルキーワードの頭に付いているコマン
+    ド名は実際に起動された時のものであるという事です。つまり、soroban.
+    exe をリネームして gumbo.exe としたなら、ローカルキーワードの最初の
+    soroban を gumbo に直す必要があります。
+
+      各ローカルキーワードについて説明します。
+      errfile には、soroban からマシンの管理をしている人に対してエラー
+    を伝えるために使うファイルのパスを設定します。
+      batchdir は sys の項で再度取り上げますが、version 2.38h で新し
+    く加わった sys オプションの機能を使うのに必要です。
+      newsfile は soroban は自分が走っているホストに宛てて隣のサイト
+    から来たニュースが格納されているメールを読み込んで処理する訳です
+    が、その名前を指定します。.txt 等は付けないでください。ただし、外
+    部に対してニュースをメールで送る時はこの設定にかかわらずそのサイ
+    トの rnews 宛てになります。注意してください。
+      pathhostname にもし何かが設定されるとその文字列が自分のホストネー
+    ムに代わってニュースヘッダ Path: に使われます。
+      pathhostlen は pathhostname が設定されない場合はニュースヘッダ
+    Path: には自分のホストネームを入れますが、その時 Hostname.Domain
+    name のうちいくつ目の "." までの部分を入れるかを指定します。
+      なお、pathhostname, pathhostlen はネットワーク構築の都合上ニュー
+    スの経路制御を故意に制御したりする必要がある場合のみに限って使
+    用されるべきです。よく理解していない人は絶対に設定しないでくださ
+    い。
+
+　　　蛇足ですが、ドライヴという概念が存在する機械に複数のドライヴが
+　　存在するものを使っている場合にはパス名にドライヴ名を含めたほうが
+　　良いでしょう。
+
+ファイル
+
+    $ETC/network.def                        ネットワーク環境定義ファイル
+    [soroban.batchdir]/*                    ニュース一括処理用出力ファイル
+    [soroban.errfile]                       エラー通知用ファイル
+    [Terakoya.libDir]/seq                   メッセージＩＤ指定用番号ファイル
+    [Terakoya.libDir]/active                ニュースグループ管理ファイル
+    [Terakoya.libDir]/history               ニュース重複チェックファイル
+    [Terakoya.libDir]/history.idx           重複チェックインデックスファイル
+    [Terakoya.libDir]/sys                   隣接ホスト管理ファイル
+    [SpoolDir]/mail/[soroban.newsfile]      ニュース処理入力ファイル
+    [Terakoya.newsDir]/news/.....           ニュース格納ディレクトリ及び本体
+
+注意事項
+
+    ニュースを格納するディレクトリが存在しない場合は自動的に作られます。
+    soroban は yomikaki とともに terakoya システムを形成します。
+
+関連項目
+
+    yomikaki(1), poi(1), jnet(1), nos98(1), network.def(5), loadnetdef(3)
+
+著者
+
+    おいもくらぶ
+	横田  大
+	dai@msr.prug.or.jp [133.168.194.1]
+
+    version 2.30 以降
+	谷口 章彦
+	packy@jf1pxi.e-tokyo.prug.or.jp
+	jf1pxi@jh1ynw.prug.or.jp
+
+    version 2.40, 2.41
+	鈴木 隆史
+	wex@jf7wex.sdj.miyagi.prug.or.jp
+
+備考
+
+      このドキュメントは version 2.40 のリリースに際して以前のものに
+    その追加ドキュメント類、新しく追加された機能を反映させるために特
+    に wex@jf7wex.sdj.miyagi.prug.or.jp が書き加え、変更したものであ
+    る。
+
+soroban version 2.41 Copyright (C) 1989,90 Dai Yokota, JK1LOT
+				   1991 Akihiko Taniguchi, JF1PXI
+                                   1992 Ryuji Suzuki, JF7WEX

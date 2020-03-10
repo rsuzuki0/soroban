@@ -1,0 +1,81 @@
+main()
+{
+	exit_func(+soroban.c);
+	change_time(+stdfunc.c);
+	init_param(+soroban.c);
+	init_mid(+mid.c);
+	init_param(+soroban.c);
+	init_mid(+mid.c);
+	filelength();
+	mlock(+stdfunc.c);
+	tfcreat(+tempfile.c);
+	copy_f_delh(+soroban.c);
+	tfclose(+tempfile.c);
+	analyze(+soroban.c);
+	tfremove(+tempfile.c);
+	send(+smail.c);
+	active_restore(+active.c);
+	rmlock(+stdfunc.c);
+}
+
+init_param()
+{
+	get_params(+soroban.c);
+	alloc_error(+errors.c);
+	chkdfree(+derrors.c);
+	alloc_error(+errors.c);
+	reform_path(+stdfunc.c);
+	chkdfree(+derrors.c);
+	reform_path(+stdfunc.c);
+	chkdfree(+derrors.c);
+	active_read(+active.c);
+	sys_read(+sys.c);
+}
+
+exit_func()
+{
+	errprintf(+errors.c);
+	close_mid(+mid.c);
+	tfcloseall(+tempfile.c);
+	fcloseall();
+	change_time(+stdfunc.c);
+}
+
+analyze()
+{
+	tfopen(+tempfile.c);
+	news_end();
+	cntlmsg(+soroban.c);
+	news_end();
+	doihave(+control.c);
+	dosendme(+control.c);
+	doalhave(+control.c);
+	doaddme(+control.c);
+	dodelme(+control.c);
+	dosendsys(+control.c);
+	dosendver(+control.c);
+	donewgroup(+control.c);
+	dormgroup(+control.c);
+	docancel(+control.c);
+	doihave(+control.c);
+	dosendme(+control.c);
+	doalhave(+control.c);
+	donews(+newsbody.c);
+	tfclose(+tempfile.c);
+}
+
+copy_f_delh()
+{
+}
+
+cntlmsg()
+{
+}
+
+get_params()
+{
+	loadnetdef();
+	errprintf(+errors.c);
+	alloc_error(+errors.c);
+}
+

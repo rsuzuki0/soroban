@@ -1,0 +1,102 @@
+doihave()
+{
+	srch_mid(+mid.c);
+	smailctl(+smail.c);
+}
+
+dosendme()
+{
+	hostnamecomp(+control.c);
+	midpath(+mid.c);
+	smailctl(+smail.c);
+	midopen(+mid.c);
+	sendmail(+smail.c);
+	midlckopen(+mid.c);
+	tfcreat(+tempfile.c);
+	hostnamecomp(+control.c);
+	tfremove(+tempfile.c);
+	midlckrm(+mid.c);
+	midlckopen(+mid.c);
+	copy_file(+stdfunc.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+}
+
+doalhave()
+{
+	midlckopen(+mid.c);
+	tfcreat(+tempfile.c);
+	hostnamecomp(+control.c);
+	tfremove(+tempfile.c);
+	midlckrm(+mid.c);
+	midlckopen(+mid.c);
+	copy_file(+stdfunc.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+}
+
+doaddme()
+{
+	tfcreat(+tempfile.c);
+	sendmail_postmaster(+smail.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+}
+
+dodelme()
+{
+	tfcreat(+tempfile.c);
+	sendmail_postmaster(+smail.c);
+	tfclose(+tempfile.c);
+}
+
+donewgroup()
+{
+	active_exist(+active.c);
+	active_create(+active.c);
+	tfcreat(+tempfile.c);
+	sendmail_postmaster(+smail.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+	tfcreat(+tempfile.c);
+	sendmail_postmaster(+smail.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+}
+
+dormgroup()
+{
+	active_remove(+active.c);
+	tfcreat(+tempfile.c);
+	sendmail_postmaster(+smail.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+	tfcreat(+tempfile.c);
+	sendmail_postmaster(+smail.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+}
+
+docancel()
+{
+	midopen(+mid.c);
+	add_mid(+mid.c);
+	midrm(+mid.c);
+}
+
+dosendsys()
+{
+	errprintf(+errors.c);
+}
+
+dosendver()
+{
+	tfcreat(+tempfile.c);
+	tfclose(+tempfile.c);
+	tfremove(+tempfile.c);
+}
+
+hostnamecomp()
+{
+}
+

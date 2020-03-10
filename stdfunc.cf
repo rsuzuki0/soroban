@@ -1,0 +1,52 @@
+fputs_shiftjis()
+{
+	disk_error(+errors.c);
+}
+
+fputs_newjis()
+{
+	iskanji();
+	disk_error(+errors.c);
+	iskana();
+	disk_error(+errors.c);
+}
+
+basename()
+{
+}
+
+kill_cr()
+{
+}
+
+reform_path()
+{
+	iskanji();
+}
+
+sltoyen()
+{
+}
+
+change_time()
+{
+}
+
+file_check()
+{
+}
+
+mlock()
+{
+}
+
+rmlock()
+{
+	unlink();
+}
+
+copy_file()
+{
+	disk_error(+errors.c);
+}
+

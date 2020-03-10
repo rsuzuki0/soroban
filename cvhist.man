@@ -1,0 +1,66 @@
+
+
+cvhist(1)          Terakoya News System User's Manual          cvhist(1)
+
+
+
+名称
+     cvhist - convert history format
+
+形式
+     cvhist (オプションはありません)
+
+解説
+     cvhist は soroban(1) や dentaku(1) で使用される history(5) の書式を
+     古いものから新しいものへ変換します。
+
+     標準入力をリダイレクトした場合は標準入力から、       それ以外は直接
+     history から入力し、変換後は標準出力に書き出します。
+
+     このコマンドの出力が正しいか十分評価した上で以前に使っていた
+     history と入れ替えてください。
+
+注意事項
+     soroban はシステムの動作が不安定だとごくまれに history にごみを書き
+     出します。 ごみがあると cvhist は正しい変換ができませんので事前に取
+     り除いてください。なお、soroban version 3.00 では不正なニュースのチ
+     ェックの強化を含めできるだけごみを書き出さないような対策が取られて
+     います。
+
+NETWORK.DEF
+     このプログラムは $ETC/network.def を参照します。
+     soroban が稼動できるだけの設定を予めしておいてください。
+
+バグ
+     うるう秒の計算はしていません。
+     西暦 2000 年以降のデータは正しく変換しません。
+     現在の [Terakoya.batchDir] の内容と古い history  に含まれるパスが異
+     なっていると対応できません。 予めエディタのマクロや連続置換で書き換
+     えるなどの対処が必要です。
+
+関連事項
+     soroban(1), network.def(5), history(5)
+
+著者
+     すずき  りゅうじ（仮名）  wex@jf7wex.sdj.miyagi.prug.or.jp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Terakoya News System          1st Edition                              1
+
+

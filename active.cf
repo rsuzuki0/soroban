@@ -1,0 +1,25 @@
+active_read()
+{
+	alloc_error(+errors.c);
+}
+
+active_restore()
+{
+}
+
+active_exist()
+{
+}
+
+active_remove()
+{
+}
+
+active_create()
+{
+}
+
+active_inc()
+{
+}
+

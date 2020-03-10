@@ -1,0 +1,39 @@
+ISSPACE();
+
+ISSPACE();
+
+SKIPTOSPC();
+
+SKIPSPC();
+
+ISSPACE();
+
+getindate();
+
+	prsindate(-cfref);
+	dateconv(-cfref);
+}
+
+prsindate();
+
+	SKIPSPC(-cfref);
+	ISSPACE(-cfref);
+	SKIPOVER();
+	GOBBLE_NUM();
+	isascii();
+	PACK_TWO_CHARS();
+	SKIPOVER();
+	parsetime(-cfref);
+	SKIPOVER();
+	SKIPTOSPC(-cfref);
+	datetoktype(-cfref);
+	FROMVAL();
+	SKIPSPC(-cfref);
+}
+
+parsetime();
+
+	GOBBLE_NUM();
+	ISSPACE(-cfref);
+}
+

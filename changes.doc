@@ -1,0 +1,245 @@
+soroban 2.03 からの変更点
+
+・Control: ヘッダがあって Newsgroup: all.all.ctl でないニュー
+スを Newsgroup: all.all.ctl (control) と看做すようにした。
+
+・history.idx が存在しないか、history よりも古い場合は新たに作
+り直すようにした。
+
+・*.lck ファイルが存在しないニュースに対して sendme や alhave
+を受け取ると Null pointer assignment が出るバグを取った。こ
+れはＥＰＳＯＮの機械で実行したときにハングやディスククラッシュ
+した原因であったと思われる。
+
+・active にないニュースを受け取ったとき junk に落すようにした。
+(Thanks to JL1AMK)
+（更にその旨 postmaster 宛てにメールが行くようにした）
+注：メールする機能は後に取り外されました。
+
+・sys ファイルの第２フィールドで "!" が使えるようにした。
+(This code was written by JE7LQS and JJ1BDX)
+
+soroban 2.21 からの変更点
+
+・soroban 2.03p にあった Path を見る機能を入れた
+
+	単に soroban 2.03p からコピーしてきただけです。
+	ただ、そのままだと addme を受け取った時に sys file がおかしくなっ
+	てしまうので、そこだけ修正しました。
+
+	詳しくは readme.bwq, sys.bwq をお読み下さい。
+
+・/autoexec.net を読むのをやめて、/etc/network.def を読むようにした。
+注：この記述は JK1LOT 横田さんが提案したものとは大きく相違しています。
+　　また、version 2.40 以降はこの提案に合致した仕様ですから、この説明
+　　は設定の際の参考にはしないでください。
+
+	記述方法は、
+
+		hostname jf1pxi
+		domainname e-tokyo.prug.or.jp
+
+	のようにする。From, Message-ID には hostname.domainname という形式
+	で書かれる。
+
+	また、
+
+		pathhostlen 2
+
+	のように記述すると、例えば hostname.domainname が 
+	jf1pxi.e-tokyo.prug.or.jp の場合、Path には jf1pxi.e-tokyo!... と
+	いう形式で書かれる。pathhostlen 1 だと今までと変わらない設定になる。
+
+	なお、/etc/network.def がない場合やあっても hostname が見つからな
+	い場合は従来通り /autoexec.net を読みます。
+
+・ihave/sendme/alhave の Control 行に hostname のみ入れる様にした。
+　（2.21p.pxi.5.3 で full domain を入れるように戻した）
+
+・sendme/alhave を受け取った時の *.lck の内容と Control 行の hostname の比
+　較について、短い方の長さだけ一致すれば *.lck から削除するようにした。
+
+・addme/delme/newgroup/rmgroup control news および active にない Newsgroup 
+　のニュースを受け取った時の postmaster 宛のメールの subject を 
+　control news ごとに変えた。（今までは全て from soroban だった）
+
+2.21p.pxi.3.2
+
+・「クロスポストされたニュースの *.lck ファイルが消えない」状態をとりあえ
+　ず修正（ただし完全な処理はしていない）Tnx sako@jh5kqu.prug.or.jp
+
+2.21p.pxi.4.0
+
+・-L オプションで news spool に *.lck ファイルを作らないようにした。
+
+2.21p.pxi.4.1
+
+・-V オプションで 2.03p にあった soroban のニュース処理状況表示を行なうよ
+　うにした。（Message-Id, Newsgroup の表示）
+
+2.21p.pxi.5.0
+
+・rnews.txt をいきなり rnews.bak にするのではなく、処理中は rnews.int とい
+　うファイル名で扱うようにした。soroban 起動時に rnews.int があるとそこで
+　処理を中止する。
+
+2.21p.pxi.5.1
+
+・コンパイル時の warning 発生箇所を修正
+
+2.21p.pxi.5.2
+
+・active, history について lock file を作成／参照するようにした
+
+2.21p.pxi.5.3
+
+・domainname 未設定時の ihave/sendme/alhave control message で、hostname 
+　に設定されたものをそのまま Control: 行に使うよう修正
+
+2.21p.pxi.6.0
+
+・-C オプションで Lines: と実際の行数の比較を行うようにした。違っている場
+　合は junk に落とし、どこにも送らない。また history への Message-Id の記
+　録も行わない。
+
+2.21p.pxi.7.0
+
+・sys file 第 3 フィールドが I で第 4 フィールドにファイル名の記述がある場
+　合、ihave や sendme によるニュース本体もファイルに落とすようにした。
+
+2.30
+
+・ニュースを junk に落とした場合、soroban.err に記録するようにした。
+・active にない newsgroup を junk に落とした場合、postmaster 宛にメールを
+　送っていたのをやめた。
+
+2.31
+
+・*.lck ファイルに３つ以上ホスト名が入った時、*.lck の内容がおかしくなるバ
+　グを修正。
+
+2.32
+
+・rnews.int の close 処理がまずかったのを修正したつもり
+
+2.33
+
+・行数チェックをする際、Lines: ヘッダがない場合にチェックに引っかからない
+　可能性があったのを修正
+・control news が Newsgroups: control で流れて来た時に news spool に２重に
+　記録されてしまう状態を修正
+
+2.34
+
+・control message であれば無条件で control に落とすようにした
+
+2.36
+
+・ニュースを隣に送る際、以前は control message であれば distribution のみ
+　しかチェックされていなかったが、newsgroups もチェックの対象になるように
+　した。
+・-J オプションで active にないニュースの記録を残さないようにした。
+　（以前の soroban の扱いと同じ扱いになる）
+
+2.37
+
+・-A オプションにより、全ての control message を control に落とすようにし
+　た。
+
+2.38
+
+・terakoya-news-ttl: ヘッダのサポート
+　Terakoya-news-ttl: news-ttl が指定されている場合、自ホスト名を加えた
+　後の Path: 中にある '!' の数が news-ttl 以上であったらそれ以上はニュ
+　ースを転送しない。なお、news-ttl は正の整数であること。
+
+2.38a
+
+・-i オプションで history.idx を作るときにも history とのタイムスタン
+　プの比較を行ってしまい、２回 history.idx を作ってしまうバグを直した。
+
+2.38c
+
+・sys での # によるコメントアウトを有効にした。今までは書き戻しをして
+　いなかったために消えてしまっていた。
+
+2.38d
+
+・sys, active の順番が入れ代わらないようにした。
+
+
+2.38h
+
+・sys の 3rd field で M, F を指定するとそれぞれ Message-ID, ニュース
+　本体の fullpath filename のみをファイルに書き出す。4th field で書き
+　出すファイル名を指定する。デフォルトは/spool/batch/hostname。
+
+2.40 (これ以降は wex@jf7wex.sdj.miyagi.prug.or.jp による)
+・2.38h で新しくできた sys の F オプションを使ったときに、コントロー
+　ルニュースが来るとそのパスを書き出さず、ごみを書き出していたので
+　その辺を修正した。
+・同様に [FM] オプションでのファイル名は [soroban.batchdir] からの
+　相対パスとした。
+・network.def に対応した。
+
+2.41
+・network.def のキーワードを YOMIKAKI/DASHI 準拠とした。
+・デフォルトを融通が効いた、少しは親切な設定とした。
+
+3.00
+・history の書式を Cnews 準拠とした。
+　具体的には：
+    時刻は UNIX 時刻を使う。Expire も同じ。Expire が指定されていたら
+    "~"で時刻の後につける。
+    path は NewsGroup/number となる。
+・expire が指定されていて、かつ、指定時刻を経過したものは junk へ落とす。
+・batch file の書式を変えた
+　DENTAKU と併せて使うときに都合が良い形式とした。
+・alhave の扱いの変更
+  'I' 以外が sys で指定されていない場合は一切 alhave は出さないようにした。
+・sys のデフォルトフラグを 'N' にした。
+・sys のフラグを追加した：
+　　"i" alhave を行わないで ihave - sendme する。
+    "A" binaries データベース構築に際して研究用（暫定）。
+・2.41 までのヴァージョンにあったいくつかのバグを取った。
+・ハッシュ関数を改善した。
+・ディスクの空き領域を起動時に調べることにした。
+  この部分はボーランド社のライブラリに依存しており、join/mount
+  されたドライヴでの正確な動作が期待できるかどうかの検証はまだ
+  行われていない。
+・その他、これからの使用形態で弊害になるところは見つけ次第直した。
+
+なお、このプログラムの扱いはオリジナルのバージョン（soroban 2.21 および 
+2.03p）に準じます。
+
+注意：
+
+soroban が何らかの形で異常終了した場合、$NEWS/news/lib に active.lck,
+history.lck が、/spool/mail に rnews.int が残ることがあります。これら
+のファイルが存在すると soroban は処理を中止してしまいますので、これら
+が存在しない状態で soroban を起動するようにして下さい。これらのファイ
+ルは他に同様のファイルを作成するものがない限り削除してかまいません。
+
+-C オプションを使用している場合、当然ながら junk に落ちたニュースは 
+history に記録が残りません。poi 等 history をもとにして expire するも
+のを使用する際にはご注意下さい。
+
+バグ：
+
+-c -L -V -C -A -J 各オプションの前にこれら以外のオプションがあると、こ
+れらのオプションが無視されます。仕様という話もありますが。(^^;
+
+同じ cancel control message を２度処理しようとするとハングアップすることが
+あるようです。確認された方はご一報を。
+
+				akihiko@lepus.e-tokyo.prug.or.jp
+
+								谷口章彦
+おまけ：
+
+現在は rnews.int があると処理を中断しますが、これを rnews.int から読み込ん
+で処理を続けるようにするか、もしくは rnews.lck を作って soroban 起動中は他
+プロセスからの rnews.txt へのアクセスを禁止する予定です。
+
+ただし、これに関してはマルチタスク環境下で soroban が二重に起動された場合の
+回避手段を思いつかないため、しばらくはこのままでしょう。

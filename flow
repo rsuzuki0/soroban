@@ -1,0 +1,567 @@
+1	main: void*(), <soroban.c 82>
+2		loadnetdef: <>
+3		fputs: <>
+4		exit: <>
+5		strlen: <>
+6		malloc: <>
+7		strcpy: <>
+8		strcat: <>
+9		sprintf: <>
+10		tzset: <>
+11		isatty: <>
+12		fopen: <>
+13		fgets: <>
+14		strtok: <>
+15		cvoldtime: long(), <wexlib.c 33>
+16			atoi: <>
+17			strncmp: <>
+18			strnicmp: <>
+19			sprintf: 9
+20			findnext: <>
+21			findfirst: <>
+22			fopen: 12
+23			fgets: 13
+24			fclose: <>
+25			strtok: 14
+26			strcspn: <>
+27			strlen: 5
+28			strcmp: <>
+29			malloc: 6
+30			fputs: 3
+31			exit: 4
+32			strdup: <>
+33			strncat: <>
+34			stat: <>
+35			strcat: 8
+36			strcpy: 7
+37		isnewspath: <>
+38		strrchr: <>
+39		printf: <>
+40		atexit: <>
+41		exit_func: void*(), <soroban.c 371>
+42			fopen: 12
+43			rewind: <>
+44			fgets: 13
+45			fputs: 3
+46			fclose: 24
+47			errprintf: void*(), <errors.c 37>
+48				va_start: <>
+49				vsprintf: <>
+50				time: <>
+51				ctime: <>
+52				fputs: 3
+53				va_end: <>
+54			close_mid: void*(), <mid.c 51>
+55				close_hash: void*(), <hash.c 49>
+56					fclose: 24
+57					close: <>
+58			tfcloseall: void*(), <tempfile.c 141>
+59				fclose: 24
+60				remove: <>
+61				errprintf: 47
+62			fcloseall: <>
+63			time: 50
+64			ctime: 51
+65			change_time: void*(), <stdfunc.c 262>
+66			printf: 39
+67		time: 50
+68		ctime: 51
+69		change_time: 65
+70		init_param: void*(), <soroban.c 219>
+71			get_params: void*(), <soroban.c 601>
+72				loadnetdef: 2
+73				errprintf: 47
+74				exit: 4
+75				atoi: 16
+76				strlen: 5
+77				malloc: 6
+78				alloc_error: void*(), <errors.c 23>
+79					errprintf: 47
+80					exit: 4
+81				strcpy: 7
+82				strcat: 8
+83			strlen: 5
+84			malloc: 6
+85			alloc_error: 78
+86			strcpy: 7
+87			strcat: 8
+88			fopen: 12
+89			fprintf: <>
+90			exit: 4
+91			chkdfree: int(), <derrors.c 16>
+92				strlen: 5
+93				stat: 34
+94				fprintf: 89
+95				exit: 4
+96				getdfree: <>
+97				errprintf: 47
+98				fputs: 3
+99			strdup: 32
+100			reform_path: void*(), <stdfunc.c 208>
+101				getenv: <>
+102				strcpy: 7
+103				strlen: 5
+104				iskanji: <>
+105				strcat: 8
+106			getenv: 101
+107			printf: 39
+108			active_read: void*(), <active.c 25>
+109				fopen: 12
+110				fgets: 13
+111				malloc: 6
+112				alloc_error: 78
+113				strtok: 14
+114				strdup: 32
+115				atoi: 16
+116				fclose: 24
+117			sys_read: void*(), <sys.c 13>
+118				fopen: 12
+119				getmline: char*(), <ryujilib.c 88>
+120					malloc: 6
+121					fgetc: <>
+122					ungetc: <>
+123					realloc: <>
+124				strcntchr: unsigned int(), <ryujilib.c 49>
+125				malloc: 6
+126				alloc_error: 78
+127				strtoke: char*(), <ryujilib.c 13>
+128				strdup: 32
+129				strchr: <>
+130				fclose: 24
+131		fprintf: 89
+132		init_mid: void*(), <mid.c 29>
+133			init_hash: int(), <hash.c 34>
+134				strcpy: 7
+135				fopen: 12
+136				rewind: 43
+137				open: <>
+138			config_mid: void*(), <mid.c 57>
+139				tfcreat: struct*(), <tempfile.c 38>
+140					malloc: 6
+141					alloc_error: 78
+142					strdup: 32
+143					mktemp: <>
+144					fopen: 12
+145					errprintf: 47
+146					exit: 4
+147				tfclose: void*(), <tempfile.c 96>
+148					fclose: 24
+149					errprintf: 47
+150				creat_hash: int(), <hash.c 80>
+151					creat_init_hash: int(), <hash.c 56>
+152						close: 57
+153						remove: 60
+154						open: 137
+155						write: <>
+156					fclose: 24
+157					remove: 60
+158					fopen: 12
+159					fgets: 13
+160					fputs: 3
+161					add_hash: void*(), <hash.c 114>
+162						hash: unsigned int(), <hash.c 179>
+163						lseek: <>
+164						read: <>
+165						fseek: <>
+166						ftell: <>
+167						fputs: 3
+168						tell: <>
+169						write: 155
+170				errprintf: 47
+171				exit: 4
+172				tfremove: void*(), <tempfile.c 115>
+173					strcmp: 28
+174					fclose: 24
+175					remove: 60
+176					free: <>
+177					errprintf: 47
+178			close_hash: 55
+179			filetimecomp: long(), <mid.c 185>
+180				stat: 34
+181			access: <>
+182			errprintf: 47
+183			exit: 4
+184		access: 181
+185		open: 137
+186		filelength: <>
+187		close: 57
+188		rename: <>
+189		mlock: int(), <stdfunc.c 292>
+190			sprintf: 9
+191			open: 137
+192			close: 57
+193		tfcreat: 139
+194		copy_f_delh: void*(), <soroban.c 550>
+195			fgets: 13
+196			strnicmp: 18
+197			fprintf: 89
+198			fputs: 3
+199			exit: 4
+200		tfclose: 147
+201		analyze: void*(), <soroban.c 395>
+202			tfopen: struct*(), <tempfile.c 67>
+203				strcmp: 28
+204				errprintf: 47
+205				fclose: 24
+206				fopen: 12
+207				exit: 4
+208			fgets: 13
+209			strncmp: 17
+210			ftell: 166
+211			cntlmsg: int(), <soroban.c 583>
+212				strnicmp: 18
+213				strtok: 14
+214				fgets: 13
+215			fseek: 165
+216			strnicmp: 18
+217			strtok: 14
+218			strcpy: 7
+219			printf: 39
+220			stricmp: <>
+221			doihave: void*(), <control.c 36>
+222				srch_mid: int(), <mid.c 91>
+223					search_hash: char*(), <hash.c 151>
+224						strlen: 5
+225						strncmp: 17
+226						strcpy: 7
+227						hash: 162
+228						lseek: 163
+229						read: 164
+230						fseek: 165
+231						fgets: 13
+232				smailctl: void*(), <smail.c 54>
+233					strcmp: 28
+234					malloc: 6
+235					alloc_error: 78
+236					strdup: 32
+237			dosendme: void*(), <control.c 45>
+238				hostnamecomp: char(), <control.c 289>
+239					strlen: 5
+240					strncmp: 17
+241				midpath: int(), <mid.c 115>
+242					search_hash: 223
+243					strtok: 14
+244					strcpy: 7
+245					reformnpath: <>
+246				stat: 34
+247				strlen: 5
+248				sprintf: 9
+249				puts: <>
+250				smailctl: 232
+251				midopen: struct*(), <mid.c 100>
+252					search_hash: 223
+253					strtok: 14
+254					strcpy: 7
+255					reformnpath: 245
+256					fopen: 12
+257				sendmail: void*(), <smail.c 207>
+258					file_check: int(), <stdfunc.c 281>
+259						access: 181
+260					fopen: 12
+261					fputc: <>
+262					fclose: 24
+263					add_sequence: long(), <smail.c 399>
+264						fopen: 12
+265						fgets: 13
+266						atol: <>
+267						freopen: <>
+268						fprintf: 89
+269						fclose: 24
+270					sprintf: 9
+271					time: 50
+272					ctime: 51
+273					change_time: 65
+274					gmtime: <>
+275					fprintf: 89
+276					fgets: 13
+277					strnicmp: 18
+278					fputs_newjis: void*(), <stdfunc.c 129>
+279						iskanji2: <>
+280						iskanji: 104
+281						fputs: 3
+282						disk_error: void*(), <errors.c 30>
+283							errprintf: 47
+284							exit: 4
+285						fputc: 261
+286						iskana: <>
+287				fclose: 24
+288				midlckopen: struct*(), <mid.c 149>
+289					search_hash: 223
+290					strtok: 14
+291					sprintf: 9
+292					fopen: 12
+293				tfcreat: 139
+294				fgets: 13
+295				strtok: 14
+296				fputs: 3
+297				tfremove: 172
+298				midlckrm: void*(), <mid.c 167>
+299					search_hash: 223
+300					strtok: 14
+301					sprintf: 9
+302					remove: 60
+303				rewind: 43
+304				copy_file: void*(), <stdfunc.c 320>
+305					fgets: 13
+306					fputs: 3
+307					disk_error: 282
+308				tfclose: 147
+309			doalhave: void*(), <control.c 106>
+310				midlckopen: 288
+311				tfcreat: 139
+312				fgets: 13
+313				strtok: 14
+314				hostnamecomp: 238
+315				fputs: 3
+316				fclose: 24
+317				tfremove: 172
+318				midlckrm: 298
+319				rewind: 43
+320				copy_file: 304
+321				tfclose: 147
+322			doaddme: void*(), <control.c 140>
+323				tfcreat: 139
+324				fprintf: 89
+325				rewind: 43
+326				sendmail_postmaster: void*(), <smail.c 304>
+327					file_check: 258
+328					fopen: 12
+329					fputc: 261
+330					fclose: 24
+331					add_sequence: 263
+332					sprintf: 9
+333					time: 50
+334					ctime: 51
+335					change_time: 65
+336					gmtime: 274
+337					fprintf: 89
+338					fgets: 13
+339					fputs_newjis: 278
+340				tfclose: 147
+341				tfremove: 172
+342			dodelme: void*(), <control.c 163>
+343				tfcreat: 139
+344				fprintf: 89
+345				rewind: 43
+346				sendmail_postmaster: 326
+347				tfclose: 147
+348			dosendsys: void*(), <control.c 256>
+349				fopen: 12
+350				errprintf: 47
+351				sendmail2: void*(), <smail.c 261>
+352					file_check: 258
+353					fopen: 12
+354					fputc: 261
+355					fclose: 24
+356					add_sequence: 263
+357					sprintf: 9
+358					time: 50
+359					ctime: 51
+360					change_time: 65
+361					gmtime: 274
+362					fprintf: 89
+363					fgets: 13
+364					fputs_newjis: 278
+365					strchr: 129
+366				fclose: 24
+367			dosendver: void*(), <control.c 272>
+368				tfcreat: 139
+369				fprintf: 89
+370				rewind: 43
+371				sprintf: 9
+372				sendmail2: 351
+373				tfclose: 147
+374				tfremove: 172
+375			donewgroup: void*(), <control.c 178>
+376				active_exist: int(), <active.c 74>
+377					strlen: 5
+378					strncmp: 17
+379				active_create: void*(), <active.c 117>
+380					malloc: 6
+381					alloc_error: 78
+382					strdup: 32
+383				tfcreat: 139
+384				fprintf: 89
+385				rewind: 43
+386				sendmail_postmaster: 326
+387				tfclose: 147
+388				tfremove: 172
+389			dormgroup: void*(), <control.c 207>
+390				active_remove: int(), <active.c 91>
+391					strcmp: 28
+392					free: 176
+393				tfcreat: 139
+394				fprintf: 89
+395				rewind: 43
+396				sendmail_postmaster: 326
+397				tfclose: 147
+398				tfremove: 172
+399			docancel: void*(), <control.c 235>
+400				midopen: 251
+401				add_mid: void*(), <mid.c 73>
+402					strlen: 5
+403					time: 50
+404					sprintf: 9
+405					add_hash: 161
+406				fgets: 13
+407				strcmp: 28
+408				fclose: 24
+409				midrm: int(), <mid.c 129>
+410					search_hash: 223
+411					strtok: 14
+412					strcpy: 7
+413					strcat: 8
+414					remove: 60
+415			donews: long(), <newsbody.c 50>
+416				tfcreat: 139
+417				fgets: 13
+418				strncmp: 17
+419				strnicmp: 18
+420				strchr: 129
+421				strcpy: 7
+422				strtok: 14
+423				strcat: 8
+424				fputs_shiftjis: void*(), <stdfunc.c 94>
+425					fputc: 261
+426					disk_error: 282
+427				ftell: 166
+428				rewind: 43
+429				news_analyze: int(), <newsbody.c 252>
+430					fgets: 13
+431					strnicmp: 18
+432					strtok: 14
+433					strcpy: 7
+434					printf: 39
+435					stricmp: 220
+436					malloc: 6
+437					alloc_error: 78
+438					sprintf: 9
+439					strdup: 32
+440					atoi: 16
+441					getindate: <>
+442				tfclose: 147
+443				srch_mid: 222
+444				tfremove: 172
+445				malloc: 6
+446				alloc_error: 78
+447				strdup: 32
+448				free: 176
+449				errprintf: 47
+450				tfopen: 202
+451				send_news_g: void*(), <newsbody.c 445>
+452					hostnamecomp: 238
+453					chkgrplist: int(), <newsbody.c 365>
+454						strdup: 32
+455						send: void*(), <smail.c 101>
+456							tfcreat: 139
+457							tfclose: 147
+458							strcmp: 28
+459							tfopen: 202
+460							fprinthead: void*(), <smail.c 347>
+461								strncpy: <>
+462								strchr: 129
+463								fprintf: 89
+464								time: 50
+465								ctime: 51
+466								change_time: 65
+467								gmtime: 274
+468								add_sequence: 263
+469								fputc: 261
+470							fprintf: 89
+471							rewind: 43
+472							sendmail: 257
+473							addbatchfile: void*(), <smail.c 166>
+474								strcpy: 7
+475								strcat: 8
+476								strncpy: 461
+477								strchr: 129
+478								fopen: 12
+479								fprintf: 89
+480								fclose: 24
+481							tfremove: 172
+482						alloc_error: 78
+483						strtok: 14
+484						malloc: 6
+485						strcmp: 28
+486						strcpy: 7
+487						strrchr: 38
+488						strlen: 5
+489						strncmp: 17
+490						free: 176
+491					rewind: 43
+492					sendmail: 257
+493				add_mid: 401
+494				active_exist: 376
+495				sprintf: 9
+496				active_inc: unsigned int(), <active.c 134>
+497					strcmp: 28
+498				dirfopen: struct*(), <newsbody.c 555>
+499					fopen: 12
+500					strcpy: 7
+501					mkdirrec: void*(), <newsbody.c 581>
+502						access: 181
+503						mkdir: <>
+504						strcpy: 7
+505						mkdirrec: 501
+506					errprintf: 47
+507					exit: 4
+508				fprintf: 89
+509				fputs: 3
+510				fputc: 261
+511				fclose: 24
+512				stat: 34
+513				send_neighbour: void*(), <newsbody.c 517>
+514					time: 50
+515					chkgrplist: 453
+516					hostnamecomp: 238
+517					chkpathlist: int(), <newsbody.c 463>
+518						strcpy: 7
+519						strtok: 14
+520						strdup: 32
+521						alloc_error: 78
+522						malloc: 6
+523						strcmp: 28
+524						free: 176
+525					sprintf: 9
+526					strncmp: 17
+527					smailctl: 232
+528			tfclose: 147
+529		tfremove: 172
+530		send: 455
+531		active_restore: void*(), <active.c 60>
+532			fopen: 12
+533			fprintf: 89
+534			fclose: 24
+535		rmlock: int(), <stdfunc.c 309>
+536			sprintf: 9
+537			unlink: <>
+538		fclose: 24
+539		remove: 60
+540	dateconv: long(), <dateconv.c 17>
+541		qmktime: long(), <qmktime.c 33>
+542			localtime: <>
+543	prsindate: int(), <getindat.c 74>
+544		toupper: <>
+545		tolower: <>
+546		atoi: 16
+547		parsetime: int(), <getindat.c 221>
+548		datetoktype: struct*(), <datetok.c 212>
+549			strlen: 5
+550			atoi: 16
+551			tolower: 545
+552			datebsearch: struct*(), <datetok.c 270>
+553				strncmp: 17
+554	fgetsb: char*(), <ryujilib.c 64>
+555		fread: <>
+556	get_sequence: long(), <smail.c 417>
+557		fopen: 12
+558		fgets: 13
+559		atol: 266
+560		fclose: 24
+561	basename: void*(), <stdfunc.c 181>
+562		strcpy: 7
+563		strlen: 5
+564	kill_cr: void*(), <stdfunc.c 201>
+565		strchr: 129
+566	sltoyen: void*(), <stdfunc.c 246>
+567		iskanji: 104

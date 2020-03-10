@@ -1,0 +1,65 @@
+addbatchfile();
+
+smailctl()
+{
+	alloc_error(+errors.c);
+}
+
+send()
+{
+	tfcreat(+tempfile.c);
+	tfclose(+tempfile.c);
+	tfopen(+tempfile.c);
+	fprinthead(+smail.c);
+	sendmail(+smail.c);
+	tfclose(+tempfile.c);
+	tfopen(+tempfile.c);
+	fprinthead(+smail.c);
+	sendmail(+smail.c);
+	tfclose(+tempfile.c);
+	tfopen(+tempfile.c);
+	fprinthead(+smail.c);
+	sendmail(+smail.c);
+	tfclose(+tempfile.c);
+	addbatchfile(+smail.c, -smail.c);
+	tfremove(+tempfile.c);
+}
+
+addbatchfile()
+{
+}
+
+sendmail()
+{
+	file_check(+stdfunc.c);
+	add_sequence(+smail.c);
+	change_time(+stdfunc.c);
+	fputs_newjis(+stdfunc.c);
+	file_check(+stdfunc.c);
+	add_sequence(+smail.c);
+	change_time(+stdfunc.c);
+	fputs_newjis(+stdfunc.c);
+}
+
+sendmail_postmaster()
+{
+	file_check(+stdfunc.c);
+	add_sequence(+smail.c);
+	change_time(+stdfunc.c);
+	fputs_newjis(+stdfunc.c);
+}
+
+fprinthead()
+{
+	change_time(+stdfunc.c);
+	add_sequence(+smail.c);
+}
+
+add_sequence()
+{
+}
+
+get_sequence()
+{
+}
+

@@ -1,0 +1,7 @@
+main()
+{
+	loadnetdef();
+	cvoldtime(+wexlib.c);
+	isnewspath(+wexlib.c);
+}
+

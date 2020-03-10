@@ -1,0 +1,27 @@
+.de PP
+.br
+.if argc
+.{
+.cc ?
+$0
+?cc .
+.}
+.\"
+.ed
+.de SH
+.ne 3
+.ti 0
+.sp 1
+.ti 0
+.cc ?
+$0
+?cc .
+.br
+.ed
+.de TH
+.mh :$1($2):Terakoya News System User's Manual:$1($2):
+.of :Terakoya News System:1st Edition:%:
+.ef :%:1st Editon:Terakoya News System:
+.ed
+.ll 72
+.in 5

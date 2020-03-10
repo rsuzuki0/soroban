@@ -1,0 +1,21 @@
+tfcreat()
+{
+	errprintf(+errors.c);
+}
+
+tfopen()
+{
+}
+
+tfclose()
+{
+}
+
+tfremove()
+{
+}
+
+tfcloseall()
+{
+}
+

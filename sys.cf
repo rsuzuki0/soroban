@@ -1,0 +1,15 @@
+sys_read()
+{
+	getmline(+ryujilib.c);
+	strcntchr(+ryujilib.c);
+	alloc_error(+errors.c);
+	strtoke(+ryujilib.c);
+	alloc_error(+errors.c);
+	strtoke(+ryujilib.c);
+	alloc_error(+errors.c);
+	strtoke(+ryujilib.c);
+	alloc_error(+errors.c);
+	strtoke(+ryujilib.c);
+	alloc_error(+errors.c);
+}
+

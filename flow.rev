@@ -1,0 +1,724 @@
+1	access: <>
+2		file_check : <>
+3		init_mid : <>
+4		main : <>
+5		mkdirrec : <>
+6	active_create: void*(), <active.c 117>
+7		donewgroup : <>
+8	active_exist: int(), <active.c 74>
+9		donewgroup : 7
+10		donews : <>
+11	active_inc: unsigned int(), <active.c 134>
+12		donews : 10
+13	active_read: void*(), <active.c 25>
+14		init_param : <>
+15	active_remove: int(), <active.c 91>
+16		dormgroup : <>
+17	active_restore: void*(), <active.c 60>
+18		main : 4
+19	add_hash: void*(), <hash.c 114>
+20		add_mid : <>
+21		creat_hash : <>
+22	add_mid: void*(), <mid.c 73>
+23		docancel : <>
+24		donews : 10
+25	add_sequence: long(), <smail.c 399>
+26		fprinthead : <>
+27		sendmail : <>
+28		sendmail2 : <>
+29		sendmail_postmaster : <>
+30	addbatchfile: void*(), <smail.c 166>
+31		send : <>
+32	alloc_error: void*(), <errors.c 23>
+33		active_create : <>
+34		active_read : <>
+35		chkgrplist : <>
+36		chkpathlist : <>
+37		donews : 10
+38		get_params : <>
+39		init_param : 14
+40		news_analyze : <>
+41		smailctl : <>
+42		sys_read : <>
+43		tfcreat : <>
+44	analyze: void*(), <soroban.c 395>
+45		main : 4
+46	atexit: <>
+47		main : 4
+48	atoi: <>
+49		active_read : 34
+50		cvoldtime : <>
+51		datetoktype : <>
+52		get_params : 38
+53		news_analyze : 40
+54		prsindate : <>
+55	atol: <>
+56		add_sequence : <>
+57		get_sequence : <>
+58	basename: void*(), <stdfunc.c 181>
+59	change_time: void*(), <stdfunc.c 262>
+60		exit_func : <>
+61		fprinthead : 26
+62		main : 4
+63		sendmail : 27
+64		sendmail2 : 28
+65		sendmail_postmaster : 29
+66	chkdfree: int(), <derrors.c 16>
+67		init_param : 14
+68	chkgrplist: int(), <newsbody.c 365>
+69		send_neighbour : <>
+70		send_news_g : <>
+71	chkpathlist: int(), <newsbody.c 463>
+72		send_neighbour : 69
+73	close: <>
+74		close_hash : <>
+75		creat_init_hash : <>
+76		main : 4
+77		mlock : <>
+78	close_hash: void*(), <hash.c 49>
+79		close_mid : <>
+80		init_mid : 3
+81	close_mid: void*(), <mid.c 51>
+82		exit_func : 60
+83	cntlmsg: int(), <soroban.c 583>
+84		analyze : <>
+85	config_mid: void*(), <mid.c 57>
+86		init_mid : 3
+87	copy_f_delh: void*(), <soroban.c 550>
+88		main : 4
+89	copy_file: void*(), <stdfunc.c 320>
+90		doalhave : <>
+91		dosendme : <>
+92	creat_hash: int(), <hash.c 80>
+93		config_mid : <>
+94	creat_init_hash: int(), <hash.c 56>
+95		creat_hash : 21
+96	ctime: <>
+97		errprintf : <>
+98		exit_func : 60
+99		fprinthead : 26
+100		main : 4
+101		sendmail : 27
+102		sendmail2 : 28
+103		sendmail_postmaster : 29
+104	cvoldtime: long(), <wexlib.c 33>
+105		main : 4
+106	datebsearch: struct*(), <datetok.c 270>
+107		datetoktype : 51
+108	dateconv: long(), <dateconv.c 17>
+109	datetoktype: struct*(), <datetok.c 212>
+110		prsindate : 54
+111	dirfopen: struct*(), <newsbody.c 555>
+112		donews : 10
+113	disk_error: void*(), <errors.c 30>
+114		copy_file : <>
+115		fputs_newjis : <>
+116		fputs_shiftjis : <>
+117	doaddme: void*(), <control.c 140>
+118		analyze : 84
+119	doalhave: void*(), <control.c 106>
+120		analyze : 84
+121	docancel: void*(), <control.c 235>
+122		analyze : 84
+123	dodelme: void*(), <control.c 163>
+124		analyze : 84
+125	doihave: void*(), <control.c 36>
+126		analyze : 84
+127	donewgroup: void*(), <control.c 178>
+128		analyze : 84
+129	donews: long(), <newsbody.c 50>
+130		analyze : 84
+131	dormgroup: void*(), <control.c 207>
+132		analyze : 84
+133	dosendme: void*(), <control.c 45>
+134		analyze : 84
+135	dosendsys: void*(), <control.c 256>
+136		analyze : 84
+137	dosendver: void*(), <control.c 272>
+138		analyze : 84
+139	errprintf: void*(), <errors.c 37>
+140		alloc_error : <>
+141		chkdfree : <>
+142		config_mid : 93
+143		dirfopen : <>
+144		disk_error : <>
+145		donews : 10
+146		dosendsys : <>
+147		exit_func : 60
+148		get_params : 38
+149		init_mid : 3
+150		tfclose : <>
+151		tfcloseall : <>
+152		tfcreat : 43
+153		tfopen : <>
+154		tfremove : <>
+155	exit: <>
+156		alloc_error : 140
+157		chkdfree : 141
+158		config_mid : 93
+159		copy_f_delh : <>
+160		cvoldtime : 50
+161		dirfopen : 143
+162		disk_error : 144
+163		get_params : 38
+164		init_mid : 3
+165		init_param : 14
+166		main : 4
+167		tfcreat : 43
+168		tfopen : 153
+169	exit_func: void*(), <soroban.c 371>
+170		main : 4
+171	fclose: <>
+172		active_read : 34
+173		active_restore : <>
+174		add_sequence : 56
+175		addbatchfile : <>
+176		close_hash : 74
+177		creat_hash : 21
+178		cvoldtime : 50
+179		doalhave : 90
+180		docancel : 23
+181		donews : 10
+182		dosendme : 91
+183		dosendsys : 146
+184		exit_func : 60
+185		get_sequence : 57
+186		main : 4
+187		sendmail : 27
+188		sendmail2 : 28
+189		sendmail_postmaster : 29
+190		sys_read : 42
+191		tfclose : 150
+192		tfcloseall : 151
+193		tfopen : 153
+194		tfremove : 154
+195	fcloseall: <>
+196		exit_func : 60
+197	fgetc: <>
+198		getmline : <>
+199	fgets: <>
+200		active_read : 34
+201		add_sequence : 56
+202		analyze : 84
+203		cntlmsg : <>
+204		copy_f_delh : 159
+205		copy_file : 114
+206		creat_hash : 21
+207		cvoldtime : 50
+208		doalhave : 90
+209		docancel : 23
+210		donews : 10
+211		dosendme : 91
+212		exit_func : 60
+213		get_sequence : 57
+214		main : 4
+215		news_analyze : 40
+216		search_hash : <>
+217		sendmail : 27
+218		sendmail2 : 28
+219		sendmail_postmaster : 29
+220	fgetsb: char*(), <ryujilib.c 64>
+221	file_check: int(), <stdfunc.c 281>
+222		sendmail : 27
+223		sendmail2 : 28
+224		sendmail_postmaster : 29
+225	filelength: <>
+226		main : 4
+227	filetimecomp: long(), <mid.c 185>
+228		init_mid : 3
+229	findfirst: <>
+230		cvoldtime : 50
+231	findnext: <>
+232		cvoldtime : 50
+233	fopen: <>
+234		active_read : 34
+235		active_restore : 173
+236		add_sequence : 56
+237		addbatchfile : 175
+238		creat_hash : 21
+239		cvoldtime : 50
+240		dirfopen : 143
+241		dosendsys : 146
+242		exit_func : 60
+243		get_sequence : 57
+244		init_hash : <>
+245		init_param : 14
+246		main : 4
+247		midlckopen : <>
+248		midopen : <>
+249		sendmail : 27
+250		sendmail2 : 28
+251		sendmail_postmaster : 29
+252		sys_read : 42
+253		tfcreat : 43
+254		tfopen : 153
+255	fprintf: <>
+256		active_restore : 173
+257		add_sequence : 56
+258		addbatchfile : 175
+259		chkdfree : 141
+260		copy_f_delh : 159
+261		doaddme : <>
+262		dodelme : <>
+263		donewgroup : 7
+264		donews : 10
+265		dormgroup : 16
+266		dosendver : <>
+267		fprinthead : 26
+268		init_param : 14
+269		main : 4
+270		send : 31
+271		sendmail : 27
+272		sendmail2 : 28
+273		sendmail_postmaster : 29
+274	fprinthead: void*(), <smail.c 347>
+275		send : 31
+276	fputc: <>
+277		donews : 10
+278		fprinthead : 26
+279		fputs_newjis : 115
+280		fputs_shiftjis : 116
+281		sendmail : 27
+282		sendmail2 : 28
+283		sendmail_postmaster : 29
+284	fputs: <>
+285		add_hash : <>
+286		chkdfree : 141
+287		copy_f_delh : 159
+288		copy_file : 114
+289		creat_hash : 21
+290		cvoldtime : 50
+291		doalhave : 90
+292		donews : 10
+293		dosendme : 91
+294		errprintf : 97
+295		exit_func : 60
+296		fputs_newjis : 115
+297		main : 4
+298	fputs_newjis: void*(), <stdfunc.c 129>
+299		sendmail : 27
+300		sendmail2 : 28
+301		sendmail_postmaster : 29
+302	fputs_shiftjis: void*(), <stdfunc.c 94>
+303		donews : 10
+304	fread: <>
+305		fgetsb : <>
+306	free: <>
+307		active_remove : <>
+308		chkgrplist : 35
+309		chkpathlist : 36
+310		donews : 10
+311		tfremove : 154
+312	freopen: <>
+313		add_sequence : 56
+314	fseek: <>
+315		add_hash : 285
+316		analyze : 84
+317		search_hash : 216
+318	ftell: <>
+319		add_hash : 285
+320		analyze : 84
+321		donews : 10
+322	get_params: void*(), <soroban.c 601>
+323		init_param : 14
+324	get_sequence: long(), <smail.c 417>
+325	getdfree: <>
+326		chkdfree : 141
+327	getenv: <>
+328		init_param : 14
+329		reform_path : <>
+330	getindate: <>
+331		news_analyze : 40
+332	getmline: char*(), <ryujilib.c 88>
+333		sys_read : 42
+334	gmtime: <>
+335		fprinthead : 26
+336		sendmail : 27
+337		sendmail2 : 28
+338		sendmail_postmaster : 29
+339	hash: unsigned int(), <hash.c 179>
+340		add_hash : 285
+341		search_hash : 216
+342	hostnamecomp: char(), <control.c 289>
+343		doalhave : 90
+344		dosendme : 91
+345		send_neighbour : 69
+346		send_news_g : 70
+347	init_hash: int(), <hash.c 34>
+348		init_mid : 3
+349	init_mid: void*(), <mid.c 29>
+350		main : 4
+351	init_param: void*(), <soroban.c 219>
+352		main : 4
+353	isatty: <>
+354		main : 4
+355	iskana: <>
+356		fputs_newjis : 115
+357	iskanji: <>
+358		fputs_newjis : 115
+359		reform_path : 329
+360		sltoyen : <>
+361	iskanji2: <>
+362		fputs_newjis : 115
+363	isnewspath: <>
+364		main : 4
+365	kill_cr: void*(), <stdfunc.c 201>
+366	loadnetdef: <>
+367		get_params : 38
+368		main : 4
+369	localtime: <>
+370		qmktime : <>
+371	lseek: <>
+372		add_hash : 285
+373		search_hash : 216
+374	main: void*(), <soroban.c 82>
+375	malloc: <>
+376		active_create : 33
+377		active_read : 34
+378		chkgrplist : 35
+379		chkpathlist : 36
+380		cvoldtime : 50
+381		donews : 10
+382		get_params : 38
+383		getmline : 198
+384		init_param : 14
+385		main : 4
+386		news_analyze : 40
+387		smailctl : 41
+388		sys_read : 42
+389		tfcreat : 43
+390	midlckopen: struct*(), <mid.c 149>
+391		doalhave : 90
+392		dosendme : 91
+393	midlckrm: void*(), <mid.c 167>
+394		doalhave : 90
+395		dosendme : 91
+396	midopen: struct*(), <mid.c 100>
+397		docancel : 23
+398		dosendme : 91
+399	midpath: int(), <mid.c 115>
+400		dosendme : 91
+401	midrm: int(), <mid.c 129>
+402		docancel : 23
+403	mkdir: <>
+404		mkdirrec : 5
+405	mkdirrec: void*(), <newsbody.c 581>
+406		dirfopen : 143
+407		mkdirrec : 5
+408	mktemp: <>
+409		tfcreat : 43
+410	mlock: int(), <stdfunc.c 292>
+411		main : 4
+412	news_analyze: int(), <newsbody.c 252>
+413		donews : 10
+414	open: <>
+415		creat_init_hash : 75
+416		init_hash : 244
+417		main : 4
+418		mlock : 77
+419	parsetime: int(), <getindat.c 221>
+420		prsindate : 54
+421	printf: <>
+422		analyze : 84
+423		exit_func : 60
+424		init_param : 14
+425		main : 4
+426		news_analyze : 40
+427	prsindate: int(), <getindat.c 74>
+428	puts: <>
+429		dosendme : 91
+430	qmktime: long(), <qmktime.c 33>
+431		dateconv : <>
+432	read: <>
+433		add_hash : 285
+434		search_hash : 216
+435	realloc: <>
+436		getmline : 198
+437	reform_path: void*(), <stdfunc.c 208>
+438		init_param : 14
+439	reformnpath: <>
+440		midopen : 248
+441		midpath : <>
+442	remove: <>
+443		creat_hash : 21
+444		creat_init_hash : 75
+445		main : 4
+446		midlckrm : <>
+447		midrm : <>
+448		tfcloseall : 151
+449		tfremove : 154
+450	rename: <>
+451		main : 4
+452	rewind: <>
+453		doaddme : 261
+454		doalhave : 90
+455		dodelme : 262
+456		donewgroup : 7
+457		donews : 10
+458		dormgroup : 16
+459		dosendme : 91
+460		dosendver : 266
+461		exit_func : 60
+462		init_hash : 244
+463		send : 31
+464		send_news_g : 70
+465	rmlock: int(), <stdfunc.c 309>
+466		main : 4
+467	search_hash: char*(), <hash.c 151>
+468		midlckopen : 247
+469		midlckrm : 446
+470		midopen : 248
+471		midpath : 441
+472		midrm : 447
+473		srch_mid : <>
+474	send: void*(), <smail.c 101>
+475		chkgrplist : 35
+476		main : 4
+477	send_neighbour: void*(), <newsbody.c 517>
+478		donews : 10
+479	send_news_g: void*(), <newsbody.c 445>
+480		donews : 10
+481	sendmail: void*(), <smail.c 207>
+482		dosendme : 91
+483		send : 31
+484		send_news_g : 70
+485	sendmail2: void*(), <smail.c 261>
+486		dosendsys : 146
+487		dosendver : 266
+488	sendmail_postmaster: void*(), <smail.c 304>
+489		doaddme : 261
+490		dodelme : 262
+491		donewgroup : 7
+492		dormgroup : 16
+493	sltoyen: void*(), <stdfunc.c 246>
+494	smailctl: void*(), <smail.c 54>
+495		doihave : <>
+496		dosendme : 91
+497		send_neighbour : 69
+498	sprintf: <>
+499		add_mid : 20
+500		cvoldtime : 50
+501		donews : 10
+502		dosendme : 91
+503		dosendver : 266
+504		main : 4
+505		midlckopen : 247
+506		midlckrm : 446
+507		mlock : 77
+508		news_analyze : 40
+509		rmlock : <>
+510		send_neighbour : 69
+511		sendmail : 27
+512		sendmail2 : 28
+513		sendmail_postmaster : 29
+514	srch_mid: int(), <mid.c 91>
+515		doihave : 495
+516		donews : 10
+517	stat: <>
+518		chkdfree : 141
+519		cvoldtime : 50
+520		donews : 10
+521		dosendme : 91
+522		filetimecomp : <>
+523	strcat: <>
+524		addbatchfile : 175
+525		cvoldtime : 50
+526		donews : 10
+527		get_params : 38
+528		init_param : 14
+529		main : 4
+530		midrm : 447
+531		reform_path : 329
+532	strchr: <>
+533		addbatchfile : 175
+534		donews : 10
+535		fprinthead : 26
+536		kill_cr : <>
+537		sendmail2 : 28
+538		sys_read : 42
+539	strcmp: <>
+540		active_inc : <>
+541		active_remove : 307
+542		chkgrplist : 35
+543		chkpathlist : 36
+544		cvoldtime : 50
+545		docancel : 23
+546		send : 31
+547		smailctl : 41
+548		tfopen : 153
+549		tfremove : 154
+550	strcntchr: unsigned int(), <ryujilib.c 49>
+551		sys_read : 42
+552	strcpy: <>
+553		addbatchfile : 175
+554		analyze : 84
+555		basename : <>
+556		chkgrplist : 35
+557		chkpathlist : 36
+558		cvoldtime : 50
+559		dirfopen : 143
+560		donews : 10
+561		get_params : 38
+562		init_hash : 244
+563		init_param : 14
+564		main : 4
+565		midopen : 248
+566		midpath : 441
+567		midrm : 447
+568		mkdirrec : 5
+569		news_analyze : 40
+570		reform_path : 329
+571		search_hash : 216
+572	strcspn: <>
+573		cvoldtime : 50
+574	strdup: <>
+575		active_create : 33
+576		active_read : 34
+577		chkgrplist : 35
+578		chkpathlist : 36
+579		cvoldtime : 50
+580		donews : 10
+581		init_param : 14
+582		news_analyze : 40
+583		smailctl : 41
+584		sys_read : 42
+585		tfcreat : 43
+586	stricmp: <>
+587		analyze : 84
+588		news_analyze : 40
+589	strlen: <>
+590		active_exist : <>
+591		add_mid : 20
+592		basename : 555
+593		chkdfree : 141
+594		chkgrplist : 35
+595		cvoldtime : 50
+596		datetoktype : 51
+597		dosendme : 91
+598		get_params : 38
+599		hostnamecomp : <>
+600		init_param : 14
+601		main : 4
+602		reform_path : 329
+603		search_hash : 216
+604	strncat: <>
+605		cvoldtime : 50
+606	strncmp: <>
+607		active_exist : 590
+608		analyze : 84
+609		chkgrplist : 35
+610		cvoldtime : 50
+611		datebsearch : <>
+612		donews : 10
+613		hostnamecomp : 599
+614		search_hash : 216
+615		send_neighbour : 69
+616	strncpy: <>
+617		addbatchfile : 175
+618		fprinthead : 26
+619	strnicmp: <>
+620		analyze : 84
+621		cntlmsg : 203
+622		copy_f_delh : 159
+623		cvoldtime : 50
+624		donews : 10
+625		news_analyze : 40
+626		sendmail : 27
+627	strrchr: <>
+628		chkgrplist : 35
+629		main : 4
+630	strtok: <>
+631		active_read : 34
+632		analyze : 84
+633		chkgrplist : 35
+634		chkpathlist : 36
+635		cntlmsg : 203
+636		cvoldtime : 50
+637		doalhave : 90
+638		donews : 10
+639		dosendme : 91
+640		main : 4
+641		midlckopen : 247
+642		midlckrm : 446
+643		midopen : 248
+644		midpath : 441
+645		midrm : 447
+646		news_analyze : 40
+647	strtoke: char*(), <ryujilib.c 13>
+648		sys_read : 42
+649	sys_read: void*(), <sys.c 13>
+650		init_param : 14
+651	tell: <>
+652		add_hash : 285
+653	tfclose: void*(), <tempfile.c 96>
+654		analyze : 84
+655		config_mid : 93
+656		doaddme : 261
+657		doalhave : 90
+658		dodelme : 262
+659		donewgroup : 7
+660		donews : 10
+661		dormgroup : 16
+662		dosendme : 91
+663		dosendver : 266
+664		main : 4
+665		send : 31
+666	tfcloseall: void*(), <tempfile.c 141>
+667		exit_func : 60
+668	tfcreat: struct*(), <tempfile.c 38>
+669		config_mid : 93
+670		doaddme : 261
+671		doalhave : 90
+672		dodelme : 262
+673		donewgroup : 7
+674		donews : 10
+675		dormgroup : 16
+676		dosendme : 91
+677		dosendver : 266
+678		main : 4
+679		send : 31
+680	tfopen: struct*(), <tempfile.c 67>
+681		analyze : 84
+682		donews : 10
+683		send : 31
+684	tfremove: void*(), <tempfile.c 115>
+685		config_mid : 93
+686		doaddme : 261
+687		doalhave : 90
+688		donewgroup : 7
+689		donews : 10
+690		dormgroup : 16
+691		dosendme : 91
+692		dosendver : 266
+693		main : 4
+694		send : 31
+695	time: <>
+696		add_mid : 20
+697		errprintf : 97
+698		exit_func : 60
+699		fprinthead : 26
+700		main : 4
+701		send_neighbour : 69
+702		sendmail : 27
+703		sendmail2 : 28
+704		sendmail_postmaster : 29
+705	tolower: <>
+706		datetoktype : 51
+707		prsindate : 54
+708	toupper: <>
+709		prsindate : 54
+710	tzset: <>
+711		main : 4
+712	ungetc: <>
+713		getmline : 198
+714	unlink: <>
+715		rmlock : 509
+716	va_end: <>
+717		errprintf : 97
+718	va_start: <>
+719		errprintf : 97
+720	vsprintf: <>
+721		errprintf : 97
+722	write: <>
+723		add_hash : 285
+724		creat_init_hash : 75

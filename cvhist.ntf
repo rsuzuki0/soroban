@@ -1,0 +1,37 @@
+.\" .so @a:\usr\bin\ntf\pri.ntf
+.so man.ntf
+.TH cvhist 1
+.SH 名称
+.PP cvhist - convert history format
+.SH 形式
+cvhist (オプションはありません)
+.SH 解説
+.PP cvhist は soroban(1) や dentaku(1) で使用される history(5) の
+書式を古いものから新しいものへ変換します。
+
+.PP 標準入力をリダイレクトした場合は標準入力から、それ以外は直接 history から
+入力し、変換後は標準出力に書き出します。
+
+.PP このコマンドの出力が正しいか十分評価した上で以前に使っていた history と
+入れ替えてください。
+.SH 注意事項
+.PP soroban はシステムの動作が不安定だとごくまれに history にごみを書き出し
+ます。ごみがあると cvhist は正しい変換ができませんので事前に
+取り除いてください。
+なお、soroban version 3.00 では
+不正なニュースのチェックの強化を含め
+できるだけごみを書き出さないような
+対策が取られています。
+.SH NETWORK.DEF
+.PP このプログラムは $ETC/network.def を参照します。
+.PP soroban が稼動できるだけの設定を予めしておいてください。
+.SH バグ
+.PP うるう秒の計算はしていません。
+.PP 西暦 2000 年以降のデータは正しく変換しません。
+.PP 現在の [Terakoya.batchDir] の内容と古い history に含まれるパスが
+異なっていると対応できません。予めエディタのマクロや連続置換で書き換える
+などの対処が必要です。
+.SH 関連事項
+.PP soroban(1), network.def(5), history(5)
+.SH 著者
+すずき  りゅうじ（仮名）  wex@jf7wex.sdj.miyagi.prug.or.jp

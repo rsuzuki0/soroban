@@ -1,0 +1,39 @@
+暫定版 soroban 3.05 キットについて
+
+  この版は、私のところではだいぶ長い間の安定した運用実績
+がありますが、十分なだけの試験はされていません。注意して
+下さい。
+
+  この版では、ドキュメント類の整備をしていません。マニュアル
+類は過去のままです。変更点については CHANGES をごらん下さい。
+
+  このパッケージは寺子屋システムに必要な多くのソフトウェアの
+うち、soroban だけを含むものです。このほかに yomikaki や ka9q
+インターネットパッケージが必要です。別途用意してください。
+
+　soroban version 3.00 で大幅な仕様変更がされています。
+　なお、各版についての詳細は CHANGES をご覧ください。
+
+注： version 2.40 以降の変更は全て鈴木隆史が行ったものです。
+     2.40 以降で新たに実装された機能についての問い合わせは
+     後ろに示したアドレスに送ってください。
+
+*Temporary release* of soroban version 3.05
+
+This version of soroban is not tested sufficiently, but
+has run well for a long time at my site. All the documents
+except for CHANGES are NOT up-to-date.
+
+The soroban program makes up a part of the terakoya news
+system, mainly working on MS-DOS. Its minimal system requirs
+some other programs. ex.YOMIKAKI for newsreader, KA9Q internet
+protocol package to interchange messages with neighbours.
+
+This program is widely changed at version 3.00. Upgrade
+from version 2.xx or earier, you should know well how differ
+from these version. See CHANGES for it.
+
+All modification later 2.40 has done by Ryuji Suzuki.
+for more infomation, ask for:
+
+  jf7wex@jf7wex.sdj.miyagi.prug.or.jp
